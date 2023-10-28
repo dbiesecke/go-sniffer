@@ -2,7 +2,6 @@ package core
 
 import (
 	"io/ioutil"
-	plugin "github.com/dbiesecke/go-sniffer/plugin/"
 	"github.com/google/gopacket"
 	"io"
 	mysql "github.com/dbiesecke/go-sniffer/plugSrc/mysql/build"
