@@ -2,13 +2,13 @@ package core
 
 import (
 	"io/ioutil"
-	"plugin"
+	plugin "github.com/dbiesecke/go-sniffer/plugin/"
 	"github.com/google/gopacket"
 	"io"
-	mysql "github.com/40t/go-sniffer/plugSrc/mysql/build"
-	redis "github.com/40t/go-sniffer/plugSrc/redis/build"
-	hp "github.com/40t/go-sniffer/plugSrc/http/build"
-	mongodb "github.com/40t/go-sniffer/plugSrc/mongodb/build"
+	mysql "github.com/dbiesecke/go-sniffer/plugSrc/mysql/build"
+	redis "github.com/dbiesecke/go-sniffer/plugSrc/redis/build"
+	hp "github.com/dbiesecke/go-sniffer/plugSrc/http/build"
+	mongodb "github.com/dbiesecke/go-sniffer/plugSrc/mongodb/build"
 	"path/filepath"
 	"fmt"
 	"path"
