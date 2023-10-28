@@ -3,6 +3,8 @@ package core
 import (
 	"io/ioutil"
 	"github.com/google/gopacket"
+	plugin "github.com/dbiesecke/go-sniffer/plug"
+
 	"io"
 	mysql "github.com/dbiesecke/go-sniffer/plugSrc/mysql/build"
 	redis "github.com/dbiesecke/go-sniffer/plugSrc/redis/build"
