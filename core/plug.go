@@ -1,21 +1,19 @@
 package core
 
 import (
-
-	"io/ioutil"
 	"github.com/google/gopacket"
-	plugin "github.com/dbiesecke/go-sniffer/plug"
 	"io/ioutil"
-	"fmt"
+	"os"
 
-	"io"
-	mysql "github.com/dbiesecke/go-sniffer/plugSrc/mysql/build"
-	redis "github.com/dbiesecke/go-sniffer/plugSrc/redis/build"
+	"fmt"
 	hp "github.com/dbiesecke/go-sniffer/plugSrc/http/build"
 	mongodb "github.com/dbiesecke/go-sniffer/plugSrc/mongodb/build"
-	"path/filepath"
-	"fmt"
+	mysql "github.com/dbiesecke/go-sniffer/plugSrc/mysql/build"
+	redis "github.com/dbiesecke/go-sniffer/plugSrc/redis/build"
+	"io"
 	"path"
+	"path/filepath"
+	"plugin"
 )
 
 type Plug struct {
@@ -188,9 +186,6 @@ func (p *Plug) SetOption(plugName string, plugParams []string) {
 	}
 	p.ResolveStream = resolvePacket.(func(net gopacket.Flow, transport gopacket.Flow, r io.Reader))
 	setFlag.(func([]string))(plugParams)
-<<<<<<< HEAD
+
 	p.BPF = BPFFilter.(func() string)()
-=======
-	p.BPF = BPFFilter.(func()string)()
->>>>>>> 890ee5d83e8f47c246150f29b0c1a082907c61a0
 }
