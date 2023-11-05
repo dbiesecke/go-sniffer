@@ -4,7 +4,7 @@ package main
 // #cgo LDFLAGS: -L../gobox/lib/libpcap/libpcap.a
 
 import (
-	"github.com/40t/go-sniffer/core"
+	"github.com/dbiesecke/go-sniffer/core"
 )
 
 func main() {
