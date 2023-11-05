@@ -1,4 +1,4 @@
-package build
+package http
 
 import (
 	"bufio"
@@ -9,10 +9,13 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 	"time"
 )
+
+var validIPTV = regexp.MustCompile(`(\/.+\/.+\/[0-9]+)`)
 
 const (
 	Port    = 80
@@ -43,6 +46,9 @@ func NewInstance() *H {
 	}
 	return hp
 }
+func main() {
+
+}
 
 func (m *H) ResolveStream(net, transport gopacket.Flow, buf io.Reader) {
 
@@ -55,6 +61,15 @@ func (m *H) ResolveStream(net, transport gopacket.Flow, buf io.Reader) {
 		} else if err != nil {
 			continue
 		} else {
+			log.Println("allready known! " + req.URL.String())
+
+			if validIPTV.MatchString(req.URL.String()) {
+				if _, found := c.Get(req.Host + req.URL.String()); found {
+					log.Println("allready known! ")
+				}
+				fileAppend("temp.log", req.URL.String())
+				m.c.Set(req.Host+req.URL.String(), req.Form.Encode(), cache.NoExpiration)
+			}
 
 			if strings.Contains(req.URL.String(), "/live/") {
 				if _, found := c.Get(req.Host + req.URL.String()); found {
