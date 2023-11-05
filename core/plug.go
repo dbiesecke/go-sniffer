@@ -1,8 +1,6 @@
 package core
 
 import (
-	"github.com/google/gopacket"
-	"io/ioutil"
 	"os"
 
 	"fmt"
@@ -10,6 +8,8 @@ import (
 	mongodb "github.com/dbiesecke/go-sniffer/plugSrc/mongodb/build"
 	mysql "github.com/dbiesecke/go-sniffer/plugSrc/mysql/build"
 	redis "github.com/dbiesecke/go-sniffer/plugSrc/redis/build"
+	"github.com/google/gopacket"
+
 	"io"
 	"path"
 	"path/filepath"
